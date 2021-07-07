@@ -1,100 +1,42 @@
-#
-#  Be sure to run `pod spec lint dzSdk-CN.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
+Pod::Spec.new do |s|
+  s.name         = "dzSdk-CN"
+  s.version      = "0.4.0"
+  s.author       = "limz@dianzhong.com"
+  s.summary      = "dzSdk-CN for IOS"
 
-Pod::Spec.new do |spec|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
-  spec.name         = "dzSdk-CN"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of dzSdk-CN."
-
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+  TODO: Add long description of the pod here.
                    DESC
+                   
+  s.homepage     = "https://www.dianzhong.com"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.author       = { "DZ" => "limz@dianzhong.com" }
+  s.source       = { :git => "https://github.com/15210684621/dzsdk_ad_ios.git", :tag => s.version.to_s }
+ 
 
-  spec.homepage     = "http://EXAMPLE/dzSdk-CN"
-  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.ios.deployment_target = "9.0"
+  s.requires_arc = true
+  # s.source_files  = ''
+  s.libraries = 'bz2','c++','iconv','resolv.9','sqlite3','xml2','z','c++abi'
+  s.frameworks     = "Accelerate", "AdSupport", "AudioToolbox","AVFoundation","CoreGraphics","CoreImage","CoreLocation",
+  "CoreMedia","CoreMotion","CoreTelephony","CoreText","ImageIO"
+  
+  s.module_name = 'dzSdk'
+  s.resources   = ['README.md']
+  #s.resource_bundles = {}
+  s.vendored_frameworks = 'DzSDK/libAdBase.framework','DzSDK/libAdCore.framework'
+  s.pod_target_xcconfig = {
+    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
+    'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
+    'VALID_ARCHS' => 'x86_64 armv7 arm64',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
 
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See https://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
-
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
-
-  spec.author             = { "DZ" => "limz@dianzhong.com" }
-  # Or just: spec.author    = "DZ"
-  # spec.authors            = { "DZ" => "limz@dianzhong.com" }
-  # spec.social_media_url   = "https://twitter.com/DZ"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
-
-  #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
-  # spec.osx.deployment_target = "10.7"
-  # spec.watchos.deployment_target = "2.0"
-  # spec.tvos.deployment_target = "9.0"
-
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
-  spec.source       = { :git => "http://EXAMPLE/dzSdk-CN.git", :tag => "#{spec.version}" }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
-
+  
+  
+  # spec.exclude_files = "Classes/Exclude"
   # spec.public_header_files = "Classes/**/*.h"
-
+ 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -106,7 +48,6 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
-
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
@@ -130,7 +71,6 @@ Pod::Spec.new do |spec|
   #  you can include multiple dependencies to ensure it works.
 
   # spec.requires_arc = true
-
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
 
