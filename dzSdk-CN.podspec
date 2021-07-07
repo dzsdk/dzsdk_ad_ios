@@ -4,9 +4,6 @@ Pod::Spec.new do |s|
   s.author       = "limz@dianzhong.com"
   s.summary      = "dzSdk-CN for IOS"
 
-  spec.description  = <<-DESC
-  TODO: Add long description of the pod here.
-                   DESC
                    
   s.homepage     = "https://www.dianzhong.com"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -21,7 +18,7 @@ Pod::Spec.new do |s|
   s.frameworks     = "Accelerate", "AdSupport", "AudioToolbox","AVFoundation","CoreGraphics","CoreImage","CoreLocation",
   "CoreMedia","CoreMotion","CoreTelephony","CoreText","ImageIO"
   
-  s.module_name = 'dzSdk'
+  s.module_name  = 'DzSDK'
   s.resources   = ['README.md']
   #s.resource_bundles = {}
   s.vendored_frameworks = 'DzSDK/libAdBase.framework','DzSDK/libAdCore.framework'
